@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .res{background-color: yellow}
+        .form{background-color: lightgreen}
+        /*.description {*/
+        /*    border: 5px solid #123456;*/
+        /*    padding: 10px;*/
+        /*    margin-top: 10px;*/
+        /*    margin-bottom: 10px;*/
+        /*    width: auto;*/
+        /*}*/
+        .calculator{
+            background-color: lightblue;
+            border: 1px solid rgb(26, 86, 216);
+            border-left-width: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .results{
+            background-color: rgb(175, 230, 173);
+            border: 1px solid rgb(42, 216, 26);
+            border-left-width: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        input, button{ 
+            margin: 10px 10px 10px 10px;
+
+        }
+    </style>
+    <script>
+        function arth() {
+            document.getElementById('del').innerHTML = "<!---->"
+            var a1 = parseInt(document.getElementById("a1").value);
+            var a2 = parseInt(document.getElementById("a2").value);
+            var n = parseInt(document.getElementById("n").value);
+            var d = a2 - a1
+            var r = a2 / a1
+            var arthanswer = a1 + (n - 1) * d
+            var geoanswer = a1 * Math.pow(r, n - 1)
+            document.getElementById('arths').innerHTML = 'algebric sequence: ' + arthanswer;
+            document.getElementById('arthr').innerHTML = ' ratio: ' + d;
+            document.getElementById('geos').innerHTML = 'geometric sequence: ' + geoanswer;
+            document.getElementById('geor').innerHTML  = ' ratio: ' + r;
+            return 0
+        }
+    </script>
+    <title>geo-artimitc sequence</title>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator container">
+            <input type="number" placeholder="a1" id="a1">
+            <input type="number" placeholder="a2" id="a2">
+            <input type="number" placeholder="n" id="n"><br>
+            <button onclick="arth();" class="btn btn-outline-primary">calculate</button>
+        </div>
+
+        <div class="results container">
+            <h2>Results</h2>
+            <p id="del"><em>results will appear hear</em></p>
+            <p id="arth">
+                <span id="arths" class="res"></span>
+                <span id="arthr" class="form"></span>
+            </p>
+            <p id="geo">
+                <span id="geos" class="res"></span>
+                <span id="geor" class="form"></span>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

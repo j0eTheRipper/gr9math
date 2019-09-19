@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+            .res{background-color: yellow}
+            .form{background-color: lightgreen}
+            .description {
+                border: 5px solid #123456;
+                padding: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                width: auto;
+            }
+            .calculator{
+                background-color: lightblue;
+                border: 1px solid rgb(26, 86, 216);
+                border-left-width: 5px;
+                padding: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .results{
+                background-color: rgb(175, 230, 173);
+                border: 1px solid rgb(42, 216, 26);
+                border-left-width: 5px;
+                padding: 10px;
+
+            }
+            input, button{ 
+                margin: 10px 10px 10px 10px;
+    
+            }
+        </style>
+    <script>
+        function calcSimple() {
+            var a = parseInt(document.getElementById("a").value);
+            var r = parseInt(document.getElementById("r").value);
+            var t = parseInt(document.getElementById("t").value);
+            r = r/100
+            var grothAnswer = a * Math.pow(1 + r, t)
+            var decayAnswer = a * Math.pow(1 - r, t)
+            document.getElementById('delgs').innerHTML = "<!---->"
+            document.getElementById('groths').innerHTML = a + "(1 + " + r + ") <sup>" +  t + "</sup> = " + grothAnswer;
+            document.getElementById('deld').innerHTML = "<!---->"            
+            document.getElementById('decays').innerHTML = a + "(1 - " + r + ") <sup>" +  t + "</sup> = " + decayAnswer;
+            //document.getElementById('arthr').innerHTML = ' ratio: ' + d;
+            //document.getElementById('geor').innerHTML  = ' ratio: ' + r;
+            return 0
+        }
+        function calcCompound() {
+            //document.getElementById('del1').innerHTML = "<!---->"
+            var p = parseInt(document.getElementById('p').value);
+            var r = parseInt(document.getElementById('rc').value);
+            var n = parseInt(document.getElementById('n').value);
+            var t = parseInt(document.getElementById('tc').value);
+            r = r/100
+            var answer = p * Math.pow(1 + r/n, n*t)
+            document.getElementById('grothc').innerHTML = 'Compound Growth: ' + answer;
+        }
+    </script>
+    <title>groth and decay</title>
+</head>
+<body>
+    <div class="container description">
+        <h1>Simple growth and decay</h1>
+        <div class="container solutionForm">
+            
+        </div>
+        <div class="container calculator">
+            <input type="number" placeholder="initial amount" id="a">
+            <input type="number" placeholder="rate of change" id="r">
+            <input type="number" placeholder="time" id="t"><br>
+            <button onclick="calcSimple();" class="btn btn-outline-success">calculate</button>
+        </div>
+        <div class="container results">
+            <h3>Results</h3>
+            <p>growth: </p>
+            <p id="delgs"><em>Results will apear here</em></p>
+            <span id="groths" class="groth"></span><br>
+            <hr>
+            <p>Decay</p>
+            <p id="deld"><em>Results will apear here</em></p>
+            <span id="decays" class="decay"></span><br>
+        </div>
+    </div>
+    <div class="container description">
+        <h1>Compound interrest</h1>
+        <div class="contianer calculator">
+            <input type="number" placeholder="initial amount" id="p">
+            <input type="number" placeholder="rate of change" id="rc">
+            <input type="number" placeholder="time" id="tc">
+            <input type="number" placeholder="number of times per t" id="n"><br>
+            <button onclick="calcCompound();" class="btn btn-outline-success">calculate</button>
+        </div>
+        <div class="contianer results">
+            <h3>Results</h3>
+            <p id="del1"><em>Results will appear here</em></p>
+            <span id="grothc" class="res"></span>
+        </div>
+    </div>
+</body>
+</html>

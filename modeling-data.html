@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        table{
+            width: auto;
+            align-items: center;
+        }
+        table, th, td{
+            border:1px solid #000
+        }
+    </style>
+    <script>
+        window.onload = function () {
+        function tableCrate(inputID, numberOfRows) {
+            var id = 0;
+        	var tableBody = document.getElementById('model');
+        			//tableCrate('youssef', 2);
+        	for (let x = 0; x < numberOfRows; x++) {
+        		var newTableRow = document.createElement('tr');
+        					tableBody.appendChild(newTableRow);
+        		for (var g = 0; g < 2; g++){
+        			var newTableData = document.createElement('td');
+        			newTableRow.appendChild(newTableData);
+        			var newInput = document.createElement('input');
+        			newInput.setAttribute('id', 'id' + id++);
+        			newTableData.appendChild(newInput);
+        		}
+        	}
+        }
+        tableCrate('youssef', 3);    
+        }
+    </script> 
+    <title>modeling-data</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>x</th>
+                <th>y</th>
+            </tr>
+        </thead>
+        <tbody id="model">
+        </tbody>
+    </table>
+</body>
+</html>
