@@ -15,27 +15,26 @@
     </style>
     <script>
         window.onload = function () {
-        function tableCrate(numberOfRows) {
-            var id = 0;
-        	var tableBody = document.getElementById('model');
-        			//tableCrate('youssef', 2);
-        	for (let x = 0; x < numberOfRows; x++) {
-        		var newTableRow = document.createElement('tr');
-        					tableBody.appendChild(newTableRow);
-        		for (var g = 0; g < 2; g++){
-        			var newTableData = document.createElement('td');
-        			newTableRow.appendChild(newTableData);
-        			var newInput = document.createElement('input');
-        			newInput.setAttribute('id', 'id' + id++);
-        			newTableData.appendChild(newInput);
-        		}
-        	}
-        function patternDetect() {
-            
+            tableCreate(4);
+            function tableCreate(numberOfRows) {
+                var id = 0;
+            	var tableBody = document.getElementById('model');
+            	for (let x = 0; x < numberOfRows; x++) {
+            		var newTableRow = document.createElement('tr');
+            		tableBody.appendChild(newTableRow);
+            		for (var g = 0; g < 2; g++){
+            			var newTableData = document.createElement('td');
+            			newTableRow.appendChild(newTableData);
+            			var newInput = document.createElement('input');
+                        newInput.setAttribute('type', 'number');
+            			newInput.setAttribute('id', 'id' + id++);
+            			newTableData.appendChild(newInput);
+            		}
+            	}
+            }
         }
-        }
-        //tableCrate('youssef', 3);
-        tableCrate(4);    
+        function calculate() {
+            var 
         }
     </script> 
     <title>modeling-data</title>
@@ -51,5 +50,6 @@
         <tbody id="model">
         </tbody>
     </table>
+    <button id="calc">calculate</button>
 </body>
 </html>

@@ -37,9 +37,9 @@
         </style>
     <script>
         function calcSimple() {
-            var a = parseInt(document.getElementById("a").value);
-            var r = parseInt(document.getElementById("r").value);
-            var t = parseInt(document.getElementById("t").value);
+            var a = parseFloat(document.getElementById("a").value);
+            var r = parseFloat(document.getElementById("r").value);
+            var t = parseFloat(document.getElementById("t").value);
             r = r/100
             var grothAnswer = a * Math.pow(1 + r, t)
             var decayAnswer = a * Math.pow(1 - r, t)
